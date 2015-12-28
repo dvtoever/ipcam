@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/base.xml" />
+    <logger name="defaultLogger" level="DEBUG" />
+
+    <logger name="org.apache.ftpserver.listener.nio.FtpLoggingFilter" level="ERROR">
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+
+    <springProfile name="staging">
+        <logger name="defaultLogger" level="TRACE" />
+    </springProfile>
+</configuration>
