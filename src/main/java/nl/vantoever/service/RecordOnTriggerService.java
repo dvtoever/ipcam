@@ -1,5 +1,7 @@
 package nl.vantoever.service;
 
+import nl.vantoever.domain.AlarmEvent;
+import nl.vantoever.repository.AlarmEventRepository;
 import nl.vantoever.service.events.LoginEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,6 +33,9 @@ public class RecordOnTriggerService {
 
     @Autowired
     private ImageGrabService imageGrabService;
+
+    @Autowired
+    private AlarmEventRepository alarmEventRepository;
 
     /**
      * Timestamp marking the last received alarm

@@ -6,6 +6,7 @@ import org.apache.ftpserver.ftplet.FtpException;
 import org.apache.ftpserver.listener.Listener;
 import org.apache.ftpserver.listener.ListenerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
@@ -15,6 +16,7 @@ import javax.annotation.PreDestroy;
  * Created by dvtoever on 28-12-2015.
  */
 @Service
+@Profile("dev, prd")    // do not start an actual ftp server when running junit tests
 public class FtpService {
 
     private FtpServer server;
@@ -35,7 +37,6 @@ public class FtpService {
         server = serverFactory.createServer();
         server.start();
     }
-
 
     @PreDestroy
     public void stop() {
