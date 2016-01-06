@@ -62,6 +62,7 @@ public class AlarmEventRepositoryTest {
 
         assertThat(unfinishedAlarmEvents.size(), is(1));
 
+        // fix pr comment
         final AlarmEvent alarmEvent = unfinishedAlarmEvents.get(0);
         assertThat(alarmEvent.getId(), is(2L));
         assertThat(alarmEvent.getEventStart().getTime(), is(startTestDate.getTime()));
